@@ -1,24 +1,26 @@
-let nums = [ 77, 44, 22, 33, 99, 55, 88, 0, 66, 11 ]
-
-let comparacoes, trocas
-
-function bubleSort(vetor){
+let pass, comp, trocas
+function bubbleSort(vetor) {
+    pass = 0, comp = 0, trocas = 0
     let trocou
-    comparacoes = 0
-    trocas = 0
-
-    do{
+    do {
+        pass++
         trocou = false
-        for(let i = 0;i < vetor.length -1; i++) {
-            comparacoes++
+        for(let i = 0; i < vetor.length -1; i++) {
+            comp++
             if(vetor[i] > vetor[i+1]){
-                [ vetor[i], vetor[i + 1] ] = [ vetor[i + 1], vetor[i] ]
+                [[vetor[i], vetor[i+1]] = [vetor[i+1],vetor[i]]]
                 trocou = true
                 trocas++
             }
         }
-    }while(trocou)
+    } while(trocou)
 }
-bubleSort(nums)
-console.log(nums)
-console.log({comparacoes, trocas})
+// let nums = [ 77, 44, 22, 33, 99, 55, 88, 0, 66, 11 ]
+// bubbleSort(nums)
+// console.log(nums)
+// console.log({pass, comp, trocas})
+
+import {nomes} from './data/nomes-desord.mjs'
+bubbleSort(nomes)
+console.log(nomes)
+console.log({pass, comp, trocas})
