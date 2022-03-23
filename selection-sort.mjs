@@ -1,6 +1,6 @@
 let nums = [77, 44, 22, 33, 99, 55, 88, 0, 66, 11]
 let pass, comp, troca
-function selectionSort(vetor){
+function selectionSort(vetor){ 
     pass = 0
     comp = 0
     troca = 0
