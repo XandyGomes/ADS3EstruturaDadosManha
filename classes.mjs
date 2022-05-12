@@ -82,7 +82,7 @@ class FormaGeometrica {
     }
 
     set tipo(valor) {
-        if(typeof valor !== 'R' && valor !== 'T' && valor !== 'E') {
+        if(valor !== 'R' && valor !== 'T' && valor !== 'E') {
             throw new Error('ERRO: tipo precisa ser : R, T ou E');
         }
         this.#tipo = valor;
@@ -108,8 +108,37 @@ class FormaGeometrica {
         }
     }
 
+    get area() {
+        switch(this.tipo){
+            case 'R':
+                return this.base * this.altura;
+            case 'T':
+                return (this.base * this.altura) / 2;
+            case 'E':
+                return (this.base / 2) * (this.altura / 2) * Math.PI;
+        }
+    }
+
 }
 
 let forma1 = new FormaGeometrica(15, 16, 'E') // chamando o construtor
 
+// console.log(forma1.base, forma1.altura, forma1.tipo);
+
+forma1.base = 7         // Chama a função setter
+forma1.altura = 22      // Chama a função setter
+forma1.tipo = 'E'       // Chama a função setter
+
 console.log(forma1.base, forma1.altura, forma1.tipo);
+
+console.log('Área da forma1:', forma1.calculaArea());
+
+console.log('Área da forma1 pelo get:', forma1.area);
+
+let forma2 = new FormaGeometrica(20, 15, 'E') // chamando o construtor
+let forma3 = new FormaGeometrica(30, 12, 'T') // chamando o construtor
+let forma4 = new FormaGeometrica(14, 17, 'R') // chamando o construtor
+
+console.log('Área da forma2:', forma2.calculaArea());
+console.log('Área da forma3:', forma3.calculaArea());
+console.log('Área da forma4:', forma4.calculaArea());
