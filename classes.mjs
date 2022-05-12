@@ -1,11 +1,31 @@
+// Normalmente, se usa inicial maiúscula para nomear classes
 class FormaGeometrica {
+     /* 
+        Variáveis usadas dentro de uma classe são chamadas ATRIBUTOS.
+        Existem dois tipos de atributos:
+        1) Atributo PÚBLICO: pode ser acessado tanto de dentro quanto
+           de fora da classe.
+        2) Atributo PRIVADO: só pode ser acessado de dentro da classe.
+           Em JavaScript, os nomes de atributos privados devem iniciar
+           com uma #.
+    */
+
+    // Declaração de atributos PRIVADOS - note que NÃO usamos let, var ou const
     #base
     #altura
     #tipo
 
+    /*
+        Além variáveis (atributos), classes podem conter também funções,
+        que são chamadas, nesse caso, de MÉTODO. Existe um método especial,
+        chamado "constructor", que é invocado toda vez que se tenta criar
+        um objeto a partir da classe.
+    */
     constructor(base, altura, tipo) {
-        // o construtor  recebe dados externos: base, altura e tipo e os
-        // armazena em seus atrubutos internos #base, #altura e #tipo
+        // O construtor recebe dados externos: base, altura e tipo
+        // e os armazena os atributos internos #base, #altura e #tipo.
+        // Toda vez que nos referimos a um atributo ou método (que pertencem
+        // à classe), precisamos prefixá-los com this + ponto.
     
     //Validações
     // if(typeof base !== 'number' || base <= 0) {
@@ -20,18 +40,18 @@ class FormaGeometrica {
     //     throw new Error('ERRO: tipo precisa ser : R, T ou E');
     // }
 
-    this.#base = base;
-    this.#altura = altura;
-    this.#tipo = tipo;
+    // this.#base = base;
+    // this.#altura = altura;
+    // this.#tipo = tipo;
 
-    // this.base = base;
-    // this.altura = altura;
-    // this.tipo = tipo;
+    this.base = base;
+    this.altura = altura;
+    this.tipo = tipo;
 
     }
 
-    // Funções getter: têm a finalidade de tornar visível o atributo
-    //interno privado de uma classe para o mundo externo
+    // Funções getter: têm a finalidade de tornar visíveis ao mundo externo
+    // informações armazenas em atributos privados de uma classe.
     get base() {
         return this.#base;
     }
@@ -44,8 +64,8 @@ class FormaGeometrica {
         return this.#tipo;
     }
 
-    //Funções setter: permite que o valor de atributos privados seja alterados
-    // do lado de fora da classe
+    // Funções setter: permitem que o valor de atributos privados sejam alterados
+    // do lado de fora da classe.
     //Validações
     set base(valor) {
         if(typeof valor !== 'number' || valor <= 0) {
@@ -68,6 +88,15 @@ class FormaGeometrica {
         this.#tipo = valor;
     }
 
+    /*
+        PROPRIEDADES: são abstrações presentes em um classe que permitem ler e/ou
+        alterar o valor de um atributo privado.
+        Uma propriedade é formada, pelo menos, por uma função getter.
+        Propriedades de leitura e escrita têm tanto um getter quanto um setter.
+        O nome da propriedade é o nome das funções getter/setter correspondentes.
+    */
+
+    // Método público
     calculaArea() {
         switch(this.tipo){
             case 'R':
