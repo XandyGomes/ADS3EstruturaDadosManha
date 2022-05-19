@@ -21,7 +21,7 @@ console.log(`Atendido: ${atendido}`);
 console.log(fila.print());
 
 //novas inserções
-fila.enqueue("José");
+fila.enqueue("Sebastião");
 fila.enqueue("Joaquim");
 console.log(fila.print());
 
