@@ -1,4 +1,4 @@
-mport LinkedList from './lib/LinkedList.mjs'
+import LinkedList from './lib/LinkedList.mjs'
 
 const lista = new LinkedList()
 
